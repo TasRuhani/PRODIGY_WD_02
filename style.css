@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Modern Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+  background-color: #000000ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./bg.jpg');
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  /* box-shadow: 16px 14px 20px #8989898c; */
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.container::before{
+  content: "";
+  background-image: conic-gradient(
+      #ff0052 20deg,
+      transparent 120deg
+  );
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  animation: rotate 10s linear infinite;
+  z-index: -100;
+}
+.container::after{
+  content: " ";
+  width: 670px;
+  height: 580px;
+  background: #101010;
+  position: absolute;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0052;
+  font-size: larger;
+  letter-spacing: 5px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+  z-index: -100;
+}
+@keyframes rotate {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(-360deg);
+  }
+}
+
+.timer {
+  z-index: 100;
+  font-size: 76px;
+  font-weight: lighter;
+  color: white;
+  padding: 4rem;
+  width: 600px;
+}
+
+.bottomPart {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btns {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto; /* Center horizontally */
+}
+
+.btns button {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btns .toggle {
+  transition: all 0.3s ease;
+  background-color: #508052;
+  z-index: 1;
+}
+
+.btns .toggle:active,
+.btns .reset:active,
+.btns .lap:active {
+  transform: scale(0.9);
+}
+
+.btns .toggle.on {
+  background-color: #d92027;
+}
+
+.btns .reset,
+.btns .lap {
+  transition: all 0.3s ease; 
+}
+
+.lap-box {
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  padding-left: 30px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lapItem {
+  width: 120px;
+  height: 30px;
+}
